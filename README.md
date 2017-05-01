@@ -64,7 +64,8 @@ openssl req -sha512 -new -key XX.key -out san.csr -config san.conf
 # openssl req -text -noout -verify -in san.csr
 ```
 
-## How-to: Search HTTPS servers on a network without SubjectAltName (SAN) in certificate (nmap / openssl).
+## Search HTTPS servers on a network without SubjectAltName (SAN) in certificate (nmap / openssl).
+Simply add the network address and mask. For example 192.168.1.0/24
 ```bash
 nmap -p 443 --open X.X.X.X/X | egrep -o '([0-9]{1,3}\.){3}[0-9]{1,3}' | xargs  -I {} sh -c "(echo | openssl s_client -showcerts -connect {}:443 2>/dev/null | openssl x509 -inform pem -noout -text | grep -q "DNS:") 2>/dev/null || (echo {} )"
 ```
