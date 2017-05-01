@@ -1,4 +1,4 @@
-# How-to-Search-HTTPS-servers-without-SubjectAltName-SAN-in-certificate
+# How to create SAN Certificate / Search HTTPS-servers without SubjectAltName (SAN) in certificates.
 Create SAN (SubjectAltName) certificate and locate servers that only implement CN (Common Name).
 
 **Common name vs Subject Alternative Name**.
